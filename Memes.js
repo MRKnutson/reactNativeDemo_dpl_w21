@@ -67,10 +67,13 @@ const Memes = props => {
 
   const addMeme = async () => {
     try {
-      let response = await axios.post('/memes_url', {
-        title: title,
-        image_url: imageURL,
-      });
+      let response = await axios.post(
+        'https://heroku-w21.herokuapp.com/api/memes_url',
+        {
+          title: title,
+          image_url: imageURL,
+        },
+      );
       setMemes([response.data, ...memes]);
     } catch (err) {}
   };
