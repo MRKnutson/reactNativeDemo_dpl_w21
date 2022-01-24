@@ -67,13 +67,12 @@ const Memes = props => {
 
   const addMeme = async () => {
     try {
-      let response = await axios.post('/memes', {
+      let response = await axios.post('/memes_url', {
         title: title,
         image_url: imageURL,
       });
-    } catch (err) {
-      setMemes([{ title: title, image_url: imageURL }, ...memes]);
-    }
+      setMemes([response.data, ...memes]);
+    } catch (err) {}
   };
 
   return (
